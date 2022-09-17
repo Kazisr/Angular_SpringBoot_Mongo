@@ -1,0 +1,76 @@
+<app-header></app-header>
+<div class="container">
+  <body>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-secondary active">
+        <input (click)="routToSearchBycourseCode()"  type="radio" name="options" id="option1" autocomplete="off" checked> Search_By_CourseCode
+      </label>
+      <label class="btn btn-secondary">
+        <input (click)="routToSearchByName()" type="radio" name="options" id="option2" autocomplete="off"> Search_By_Name
+      </label>
+      <label class="btn btn-secondary">
+        <input (click)="routToAddCourse()" type="radio" name="options" id="option3" autocomplete="off"> Add Course
+      </label>
+    </div>
+   
+    <div class="col-md-6" >
+      <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>CourseCode</th>
+        <th>CourseName</th>
+        <th>AssignedFaculty</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let course of courses">
+              <td>{{course.courseCode +"."+course.courseSection}}</td>
+              <td>{{course.courseName}}</td>
+              <td>{{course.assignedFaculty}}</td>
+              <td ><button class="btn btn-primary" (click)="setCourse(course)" data-bs-target="#updateCourse"data-bs-toggle="modal" >Edit</button></td>               
+              <td><button class="btn btn-danger" (click)="deleteCourse(course)"> Delete</button></td>
+              </tr>
+      </tbody>
+        </table>
+    
+      </div></body></div>
+
+
+
+
+      <div class="modal fade" id="updateCourse" tabindex="-1" aria-labelledby="updateStudentLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="updateStudentLabel">Update info</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #updateForm = "ngForm" (ngSubmit)="addCourse(updateForm.value)">
+                    <div class="mb-3">
+                      <label for="courseCode"  class="form-label">Course Code</label>
+                      <input name = "courseCode" [ngModel] = "course.courseCode" type="text" class="form-control"  >
+                    </div>
+        
+                    <div class="mb-3">
+                      <label for = "courseSection"class="form-label">Sectione</label>
+                      <input name = "courseSection" [ngModel] = "course.courseSection"  type="text" class="form-control" >
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for = "courseName" class="form-label">Course Name</label>
+                      <input name = "courseName" [ngModel] = "course.courseName"  type="text" class="form-control" >
+                    </div>
+
+                    <div class="mb-3">
+                      <label for = "assignedFaculty" class="form-label">Assigned Faculty</label>
+                      <input name = "assignedFaculty" [ngModel] = "course.assignedFaculty"  type="text" class="form-control" >
+                    </div>
+
+                    
+                    <button type="submit" class="btn btn-primary w-100">Update</button>
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>

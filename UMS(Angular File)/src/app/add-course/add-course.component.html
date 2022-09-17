@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="container" >
+  
+    <form class="row g-3" style=" border: 1px solid rgb(161, 149, 149); ">
+      <div class="col-md-4">
+        <label for="inputEmail4" class="form-label">Course Code</label>
+        <input [(ngModel)]="course.courseCode" name="id" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="inputEmail4" class="form-label">Section</label>
+        <input [(ngModel)]="course.courseSection" name="id" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="inputPassword4" class="form-label">Course Name</label>
+        <input [(ngModel)]="course.courseName" name="id" class="form-control">
+      </div>
+      <div class="col-4">
+        <label for="inputAddress" class="form-label">Assigned Faculty</label>
+        <input [(ngModel)]="course.assignedFaculty" name="id" type="text" class="form-control" >
+      </div>
+         
+        <button type="submit" (click)="addCourse(course)" class="btn btn-primary">Submit</button>
+      </form>
+      </div>

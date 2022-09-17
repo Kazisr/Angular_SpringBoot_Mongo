@@ -1,0 +1,128 @@
+<app-header></app-header>
+    <div class="container">
+      <div class="card mt-5" style="align-items: center; border: 1px solid rgb(161, 149, 149); ">
+        <h1>Student Dashboard</h1>
+    </div>
+    
+    <div class="btn-group">
+      <input (click)="routToSearchByID()"  type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked />
+      <label class="btn btn-secondary" for="option1">Search_By_ID</label>
+    
+      <input (click)="routToSearchByName()" type="radio" class="btn-check" name="options" id="option2" autocomplete="off" />
+      <label class="btn btn-secondary" for="option2">Search_By_Name</label>
+    
+      <input (click)="routToAdd()" type="radio" class="btn-check" name="options" id="option3" autocomplete="off" />
+      <label class="btn btn-secondary" for="option3">Add Student</label>
+    </div>
+
+
+
+
+
+    
+   
+    <div class="card mt-5" style="align-items: center;" >
+
+      <table class="table table-striped" style=" border: 1px solid rgb(161, 149, 149);">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Batch</th>
+        <th>CGPA</th>
+        <th>CreditCompleted</th>        
+        <th>Gender</th>
+        <th>Phone_Number</th>
+        <th>Email</th>
+        <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let student of students">
+              <td>{{student.id}}</td>
+              <td>{{student.firstName +" "+student.lastName}}</td>
+              <td>{{student.batch}}</td>
+              <td>{{student.cgpa}}</td>
+              <td>{{student.creditCompleted}}</td>
+              <td>{{student.gender}}</td>
+              <td>{{student.phnNumber}}</td>
+              <td>{{student.emailAddress}}</td>
+              <td>{{student.homeAddress}}</td>
+              <td ><button class="btn btn-primary" (click)="setStudent(student)" data-bs-target="#updateStudent"data-bs-toggle="modal" >Edit</button></td>
+               
+              <td><button class="btn btn-danger" (click)="deleteStudent(student)"> Delete</button></td>
+              </tr>
+
+              
+      </tbody>
+        </table>
+    
+      </div>
+      </div>
+
+
+      <div class="modal fade" id="updateStudent" tabindex="-1" aria-labelledby="updateStudentLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="updateStudentLabel">Update info</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #updateForm = "ngForm" (ngSubmit)="addStudent(updateForm.value)">
+                    <div class="mb-3">
+                      <label for="id"  class="form-label">Id</label>
+                      <input name = "id" [ngModel] = "student.id" type="text" class="form-control"  >
+                    </div>
+        
+                    <div class="mb-3">
+                      <label for = "firstName"class="form-label">First Name</label>
+                      <input name = "firstName" [ngModel] = "student.firstName"  type="text" class="form-control" >
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for = "lastName" class="form-label">Last Name</label>
+                      <input name = "lastName" [ngModel] = "student.lastName"  type="text" class="form-control" >
+                    </div>
+
+                    <div class="mb-3">
+                      <label for = "batch" class="form-label">Batch</label>
+                      <input name = "batch" [ngModel] = "student.batch"  type="text" class="form-control" >
+                    </div>
+
+                    <div class="mb-3">
+                      <label for = "cgpa" class="form-label">CGPA</label>
+                      <input name = "cgpa" [ngModel] = "student.cgpa"  type="text" class="form-control" >
+                    </div>
+
+                    <div class="mb-3">
+                      <label for = "creditCompleted" class="form-label">CreditCompleted</label>
+                      <input name = "creditCompleted" [ngModel] = "student.creditCompleted"  type="text" class="form-control" >
+                    </div>
+
+                    <div class="mb-3">
+                        <label for = "gender" class="form-label">Gender</label>
+                        <input name="gender" [ngModel] = "student.gender"  type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                      <label for = "phnNumber" class="form-label">Phone_Number</label>
+                      <input name="phnNumber" [ngModel] = "student.phnNumber"  type="text" class="form-control">
+                    </div>
+                  <div class="mb-3">
+                    <label for = "emailAddress" class="form-label">Email</label>
+                    <input name="emailAddress" [ngModel] = "student.emailAddress"  type="text" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                  <label for = "homeAddress" class="form-label">Address</label>
+                  <input name="homeAddress" [ngModel] = "student.homeAddress"  type="text" class="form-control">
+              </div>
+                    <button type="submit" class="btn btn-primary w-100">Update</button>
+                  </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+

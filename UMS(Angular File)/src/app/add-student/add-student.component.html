@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="container">
+  <div class="col-lg-12 mb-5 mb-lg-0">
+    <div class="card">
+      <div class="card-body py-5 px-md-5">
+<form class="row g-3">
+  <div class="col-md-4">
+    <label for="inputEmail4" class="form-label">ID</label>
+    <input [(ngModel)]="student.id" name="id" class="form-control">
+  </div>
+  <div class="col-md-4">
+    <label for="inputEmail4" class="form-label">First Name</label>
+    <input [(ngModel)]="student.firstName" name="id" class="form-control">
+  </div>
+  <div class="col-md-4">
+    <label for="inputPassword4" class="form-label">Last  Name</label>
+    <input [(ngModel)]="student.lastName" name="id" class="form-control">
+  </div>
+  <div class="col-4">
+    <label for="inputAddress" class="form-label">Batch</label>
+    <input [(ngModel)]="student.batch" name="id" type="text" class="form-control" >
+  </div>
+  <div class="col-4">
+    <label for="inputAddress" class="form-label">CGPA</label>
+    <input [(ngModel)]="student.cgpa" name="id" class="form-control" >
+  </div>
+  <div class="col-4">
+    <label for="inputAddress" class="form-label">Credit Completed</label>
+    <input [(ngModel)]="student.creditCompleted" name="id" class="form-control">
+  </div>
+  <div class="col-6">
+    <label for="inputAddress2" class="form-label">Phone Number</label>
+    <input [(ngModel)]="student.phnNumber" name="id" class="form-control" placeholder="Ex: +88017000000">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Email Address</label>
+    <input [(ngModel)]="student.emailAddress" name="id" class="form-control" placeholder="Ex: someone@gmail.com">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">Address</label>
+    <input [(ngModel)]="student.homeAddress" name="id" class="form-control" placeholder="Ex: someone@gmail.com">
+  </div>
+  <div class="col-md-6">
+    <label for="inputState" class="form-label">Gender</label>
+    <select [(ngModel)]="student.gender" name="id" id="inputState" class="form-select">
+      <option selected>Male</option>
+      <option>Female</option>
+    </select>
+  </div>
+     
+    <button type="submit" (click)="addStudent(student)" class="btn btn-primary">Submit</button>
+  </form>
+  </div> </div> </div> </div>

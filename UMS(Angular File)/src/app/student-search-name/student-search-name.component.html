@@ -1,0 +1,42 @@
+<app-header></app-header>
+<form class="card mt-5" style="align-items: center;">
+    <div class="form-group" >
+      <label for="exampleInputEmail1">Give Student Name</label>
+      <input [(ngModel)]="student.firstName" [(ngModel)]="student.lastName" name="id" class="form-control">
+    </div>
+    <button type="submit" (click)="findStudentByName(student)" class="btn btn-primary">Search</button>
+     
+  </form>
+
+  <div class="col-md-6" class="card mt-5" style="align-items: center;">
+    <table class="table table-striped">
+    <thead>
+    <tr>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Batch</th>
+        <th>CGPA</th>
+        <th>CreditCompleted</th>        
+        <th>Gender</th>
+        <th>Phone_Number</th>
+        <th>Email</th>
+        <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{student.id}}</td>
+          <td>{{student.firstName +" "+student.lastName}}</td>
+          <td>{{student.batch}}</td>
+          <td>{{student.cgpa}}</td>
+          <td>{{student.creditCompleted}}</td>
+          <td>{{student.gender}}</td>
+          <td>{{student.phnNumber}}</td>
+          <td>{{student.emailAddress}}</td>
+          <td>{{student.homeAddress}}</td>
+           </tr>
+    </tbody>
+      </table>
+  
+    </div>
